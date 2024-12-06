@@ -1,19 +1,13 @@
 
 import requests
 from bs4 import BeautifulSoup
-from directoryNode import DirectoryNode
-def entryPoint(url):
+
+def searchForDirectories(url):
     #this method begins the search for other subdirectories
     #serves as the entrypoint into the search
     response = requests.get(url)
     linkList = findUrlsContainingBaseUrl(response.text, findBaseUrl(url))
-    for link in linkList:
-        print(link)
-
-
-def createDirectoryNode(url):
-    directoryNode = createDirectoryNode(url)
-
+    return linkList
 
 def findUrlsContainingBaseUrl(html, baseUrl):
     soup = BeautifulSoup(html, 'html.parser')
@@ -31,6 +25,7 @@ def findUrlsContainingBaseUrl(html, baseUrl):
                 else:
                     linkList.append(href)
     return linkList
+
 def findBaseUrl(url):
     return url.split(".com")[0].split("https://")[1] + ".com"
 

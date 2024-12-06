@@ -1,9 +1,11 @@
+import findSubdirectories
+
 class DirectoryNode:
-    def __init__(self, selfUrl, connections):
+    def __init__(self, selfUrl):
         #selfUrl is the url of this node's website
         #connections is a list of subdirectories (other node) that this website is connected to
         self.selfUrl = selfUrl
-        self.connections = connections
+        self.connections = []
 
     def getConnections(self):
         return self.connections
@@ -11,5 +13,7 @@ class DirectoryNode:
     def getSelfUrl(self):
         return self.selfUrl
 
-def createDirectoryNode(url):
-    directoryNode = createDirectoryNode(url)
+    def generateConnections(self):
+        self.connections = findSubdirectories.searchForDirectories(self.selfUrl)
+
+
