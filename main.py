@@ -1,6 +1,7 @@
 import directoryNode
 from nodeNetwork import NodeNetwork
 from directoryNode import DirectoryNode
+import findSubdirectories
 
 #the nesting of the classes goes as follows
 #NodeNetwork > DirectoryNode > findSubdirectories(not a class)
@@ -12,11 +13,12 @@ from directoryNode import DirectoryNode
 
 def main():
     nn = NodeNetwork()
-    nn.addNode("https://blog.hubspot.com/marketing")
-    nodeDict = nn.getNodeDict()
-    for node in nodeDict:
-        print(nodeDict[node].getConnections())
-
+    #print(nn.addNode("https://unity.com/"))
+    dict = nn.generateNetwork("https://cultdeadcow.com/")
+    #print("-------------------------------------------------------------------------")
+    for node in dict:
+        print(node.getConnections)
+    #print(findSubdirectories.searchForDirectories("https://unity.com/"))
 
 if __name__ == "__main__":
     main()
