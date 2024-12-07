@@ -14,7 +14,7 @@ import findSubdirectories
 def main():
     nn = NodeNetwork()
     #print(nn.addNode("https://unity.com/"))
-    dict = nn.generateNetwork("https://cultdeadcow.com/")
+    dict = nn.generateNetwork("www.goodAndEthical.com")
     #print("-------------------------------------------------------------------------")
     for node in dict:
         print(node.getConnections)
