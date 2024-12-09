@@ -1,0 +1,13 @@
+This program is a crawler that visually represents connected subdirectories as a directed node graph. The general
+goal of this approach is to display the structure of a website in a way that anyone could understand; at the 
+minimum, it is a cool way to show how a seemingly simple website can in reality be a complex web of interconnected
+subdirectories. 
+It is not difficult to use, simply run the program and enter a url. 
+I specifically made it incompatible with some high level domain types such as .mil- if you really want to try your
+luck the code is easy to change, but I do not recomend doing this. I left .gov as a viable option, but added an 
+additional varification, as that again is not something you want to accidentally do.
+
+There will also be attatched examples of what the graphs look like. You can choose if you would like to have url
+labels, but for larger graphs I do not recomend it (it becomes very messy).
+
+Thanks for checking my project out!
