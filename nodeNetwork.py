@@ -1,8 +1,6 @@
 import queue
 import time
 from pynput import keyboard
-
-import directoryNode
 from directoryNode import DirectoryNode
 
 class NodeNetwork:
