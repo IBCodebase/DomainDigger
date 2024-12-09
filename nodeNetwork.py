@@ -1,5 +1,6 @@
 import queue
 import time
+from pynput import keyboard
 
 import directoryNode
 from directoryNode import DirectoryNode
@@ -37,17 +38,36 @@ class NodeNetwork:
         for url in addList:
             unexploredNodeQueue.put(url)
 
-        while unexploredNodeQueue.qsize() > 0:
-            time.sleep(.25)
+        running = True
+        def on_press(key):
+            nonlocal running  # Capture the local variable
             try:
-                newAdd = unexploredNodeQueue.get()
-                print(newAdd)
-                addList = self.addNode(newAdd)
-                for url in addList:
-                    if not self.nodeDict.__contains__(url):
-                        unexploredNodeQueue.put(url)
+                if key.char == 'x':  # Stop loop when 'x' is pressed
+                    print("Key 'x' pressed. Stopping loop...")
+                    running = False
+                    return False
+            except AttributeError:
+                pass
+
+        with keyboard.Listener(on_press=on_press) as listener:
+            while unexploredNodeQueue.qsize() > 0 and running:
+                time.sleep(0.1)
+                try:
+                    newAdd = unexploredNodeQueue.get()
+                    print(newAdd)
+                    addList = self.addNode(newAdd)
+                    for url in addList:
+                        if not self.nodeDict.__contains__(url):
+                            unexploredNodeQueue.put(url)
+
+                except Exception as e:
+                    print(f"whoopsy: {e}")
 
 
-            except Exception as e:
-                print(f"whoopsy: {e}")
         return self.nodeDict
+
+    def recordNode(self, node):
+
+        with open("nodeNetworkRecord.txt", "a") as file:
+            file.write(node.getSelfUrl + ":" + node.getConnections)
+

@@ -61,5 +61,22 @@ def findUrlsContainingBaseUrl(response, baseUrl, url):
     return baseList
 
 def findBaseUrl(url):
-    return "https://" + (url.split(".com")[0].split("https://")[1] + ".com")
+    if url.__contains__(".com"):
+        return "https://" + (url.split(".com")[0].split("https://")[1] + ".com")
+    if url.__contains__(".edu"):
+        return "https://" + (url.split(".edu")[0].split("https://")[1] + ".edu")
+    if url.__contains__(".gov"):
+        print("WARNING - YOU ARE ABOUT TO CRAWL A GOVERNMENT SERVER - WARNING")
+        if input("IF YOU WISH TO CONTINUE INPUT \'QTIP1580\'" == 'QTIP1580'):
+            return "https://" + (url.split(".gov")[0].split("https://")[1] + ".gov")
+        return "STOP"
+    if url.__contains__(".org"):
+        return "https://" + (url.split(".org")[0].split("https://")[1] + ".org")
+    if url.__contains__(".net"):
+        return "https://" + (url.split(".net")[0].split("https://")[1] + ".net")
+    if url.__contains__(".biz"):
+        return "https://" + (url.split(".biz")[0].split("https://")[1] + ".biz")
+    if url.__contains__(".info"):
+        return "https://" + (url.split(".info")[0].split("https://")[1] + ".info")
+    return "obscure url high level domain --- add to code"
 
