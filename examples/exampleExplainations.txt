@@ -1,1 +1,9 @@
+Example 1 is of a large connected domain with many pages. A quark of this website I noticed is the tendency
+for all pages to contain a self referential link in the url. This domain took about 59.5 minutes to map, and
+is of an unspecified university's website.
 
+Example 2 is of a simpler domain, included to give a better understanding of how the graphs look when less 
+filled. This graph was produced from https://chatgpt.com (I chose a common service everyone is familiar with).
+
+Example 3 (partialScanGraphExample.png) is a graph produce from a different unspecified university's website. It
+was halted early in its scan an thus has produced a graph with many "loose ends". 
